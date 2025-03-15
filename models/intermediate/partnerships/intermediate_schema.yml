@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: registration_record_partnership_normalized
+    description: "Normalized data of the registration records for partnership" 
+    +schema: intermediate
+    columns: 
+       - name: _id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null

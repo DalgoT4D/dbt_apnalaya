@@ -1,0 +1,11 @@
+
+target/
+dbt_packages/
+logs/
+tmp/
+.dbtenv/
+.vscode
+.DS_Store
+profiles.yml
+.user.yml
+package-lock.yml

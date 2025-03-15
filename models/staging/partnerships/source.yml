@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: kobo_partnerships
+    schema: staging
+    tables:
+      - name: registration_record_partnership
+        identifier: 'Registration_Record_Partnership'
+        description: "Registration record for a partnership"
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
