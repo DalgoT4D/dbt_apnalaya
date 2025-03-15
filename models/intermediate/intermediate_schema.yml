@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: registration_record_partnership_normalized
+    description: "Normalized data of the registration records for partnership" 
+    +schema: intermediate
+    columns: 
+       - name: household_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: training_record_partnership_normalized
+    description: "Normalized data of the training records for partnership" 
+    +schema: intermediate
+    columns: 
+       - name: training_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null

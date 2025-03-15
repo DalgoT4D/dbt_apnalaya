@@ -11,3 +11,10 @@ sources:
           - elementary.schema_changes: 
               config:
                 severity: error
+      - name: training_record_partnership
+        identifier: 'Training_Record_Partnership'
+        description: "Training Registration record"
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
