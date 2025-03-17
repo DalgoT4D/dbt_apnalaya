@@ -33,6 +33,7 @@ SELECT
 FROM deduped_cte as td
 )
 
+-- Normalize partner name when blank separated strings are equivalent
 SELECT t.*,DATE_TRUNC('month', t.submission_date)::date AS submission_month,
    {{ normalize_string('t.partner_name') }} AS normalized_partner_name
    from training_data as t

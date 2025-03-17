@@ -5,7 +5,7 @@ models:
     description: "Productiojn data of the registration records for partnership" 
     +schema: production
     columns: 
-       - name: household_id
+       - name: unique_id
          description: "The primary key for this table"
          tests:
            - unique

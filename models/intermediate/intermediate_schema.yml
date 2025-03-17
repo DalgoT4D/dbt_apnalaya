@@ -5,11 +5,17 @@ models:
     description: "Normalized data of the registration records for partnership" 
     +schema: intermediate
     columns: 
-       - name: household_id
+       - name: unique_id
          description: "The primary key for this table"
          tests:
            - unique
            - not_null
+       - name: submission_date
+         description: "Date when the particpant registered"
+         tests:
+           - not_null
+           - dbt_utils.expression_is_true:
+              expression: ">= '2020-01-01'"
   - name: training_record_partnership_normalized
     description: "Normalized data of the training records for partnership" 
     +schema: intermediate
@@ -18,4 +24,16 @@ models:
          description: "The primary key for this table"
          tests:
            - unique
+           - not_null
+       - name: partner_name
+         description: "Name of the partner organization"
+         tests:
+           - not_null
+       - name: submission_date
+         description: "Date when training was conducted"
+         tests:
+           - not_null
+       - name: training_nature
+         description: "Type/category of training conducted"
+         tests:
            - not_null

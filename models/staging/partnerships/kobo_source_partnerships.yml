@@ -11,6 +11,12 @@ sources:
           - elementary.schema_changes: 
               config:
                 severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
       - name: training_record_partnership
         identifier: 'Training_Record_Partnership'
         description: "Training Registration record"
@@ -18,3 +24,9 @@ sources:
           - elementary.schema_changes: 
               config:
                 severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
