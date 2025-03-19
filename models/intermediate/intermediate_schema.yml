@@ -37,3 +37,20 @@ models:
          description: "Type/category of training conducted"
          tests:
            - not_null
+  - name: event_record_partnership_normalized
+    description: "Normalized data of the event records for partnership" 
+    +schema: intermediate
+    columns: 
+       - name: event_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+       - name: partner_name
+         description: "Name of the partner organization"
+         tests:
+           - not_null
+       - name: submission_date
+         description: "Date when training was conducted"
+         tests:
+           - not_null

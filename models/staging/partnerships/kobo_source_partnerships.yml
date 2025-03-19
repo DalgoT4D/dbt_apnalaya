@@ -30,3 +30,17 @@ sources:
           - elementary.freshness_anomalies:
               timestamp_column: _airbyte_extracted_at
               anomaly_sensitivity: 3
+
+      - name: event_record_partnership
+        identifier: 'Event_Record_Partnership'
+        description: "Training Registration record"
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3

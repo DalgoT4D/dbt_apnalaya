@@ -19,3 +19,12 @@ models:
          tests:
            - unique
            - not_null
+
+  - name: event_record_partnership
+    description: "Production data of the training records for partnership" 
+    +schema: production
+    columns: 
+       - name: event_id
+         description: "The primary key for this table"
+         tests:
+           - not_null
