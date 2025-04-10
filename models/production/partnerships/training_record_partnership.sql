@@ -27,4 +27,4 @@ deduped_cte as (
 
 SELECT * FROM deduped_cte
 UNION ALL
-SELECT *, 1 AS rown_num FROM nulls_cte
+SELECT *, 1 AS row_num FROM nulls_cte

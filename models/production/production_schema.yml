@@ -5,7 +5,7 @@ models:
     description: "Productiojn data of the registration records for partnership" 
     +schema: production
     columns: 
-       - name: unique_id
+       - name: id
          description: "The primary key for this table"
          tests:
            - unique
@@ -14,17 +14,62 @@ models:
     description: "Production data of the training records for partnership" 
     +schema: production
     columns: 
-       - name: training_id
+       - name: id
          description: "The primary key for this table"
          tests:
            - unique
            - not_null
 
   - name: event_record_partnership
-    description: "Production data of the training records for partnership" 
+    description: "Production data of the event records for partnership" 
     +schema: production
     columns: 
-       - name: event_id
+       - name: id
+         description: "The primary key for this table"
+         tests:
+           - not_null
+
+  - name: meeting_record_partnership
+    description: "Production data of the meeting records for partnership" 
+    +schema: production
+    columns: 
+       - name: id
+         description: "The primary key for this table"
+         tests:
+           - not_null
+
+  - name: interaction_record_partnership
+    description: "Production data of the interaction records for partnership" 
+    +schema: production
+    columns: 
+       - name: id
+         description: "The primary key for this table"
+         tests:
+           - not_null
+
+  - name: cl_civic_action_partnership
+    description: "Production data of the Community level civic action records for partnership" 
+    +schema: production
+    columns: 
+       - name: id
+         description: "The primary key for this table"
+         tests:
+           - not_null
+
+  - name: hl_civic_action_partnership
+    description: "Production data of the Household Level Civic Action records for partnership" 
+    +schema: production
+    columns: 
+       - name: id
+         description: "The primary key for this table"
+         tests:
+           - not_null
+
+  - name: stakeholder_visit_record_partnership
+    description: "Production data of the Stakeholder Visits for partnership" 
+    +schema: production
+    columns: 
+       - name: id
          description: "The primary key for this table"
          tests:
            - not_null

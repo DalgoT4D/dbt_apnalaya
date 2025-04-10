@@ -10,7 +10,7 @@ models:
          tests:
            - unique
            - not_null
-       - name: submission_date
+       - name: monitoring_date
          description: "Date when the particpant registered"
          tests:
            - not_null
@@ -20,7 +20,7 @@ models:
     description: "Normalized data of the training records for partnership" 
     +schema: intermediate
     columns: 
-       - name: training_id
+       - name: id
          description: "The primary key for this table"
          tests:
            - unique
@@ -29,7 +29,7 @@ models:
          description: "Name of the partner organization"
          tests:
            - not_null
-       - name: submission_date
+       - name: monitoring_date
          description: "Date when training was conducted"
          tests:
            - not_null
@@ -41,7 +41,7 @@ models:
     description: "Normalized data of the event records for partnership" 
     +schema: intermediate
     columns: 
-       - name: event_id
+       - name: id
          description: "The primary key for this table"
          tests:
            - unique
@@ -50,7 +50,82 @@ models:
          description: "Name of the partner organization"
          tests:
            - not_null
-       - name: submission_date
-         description: "Date when training was conducted"
+       - name: monitoring_date
+         description: "Date when event was conducted"
          tests:
            - not_null
+
+  - name: meeting_record_partnership_normalized
+    description: "Normalized data of the meeting records for partnership" 
+    +schema: intermediate
+    columns: 
+       - name: id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+       - name: partner_name
+         description: "Name of the partner organization"
+         tests:
+           - not_null
+       - name: monitoring_date
+         description: "Date when meeting was conducted"
+         tests:
+           - not_null
+
+  - name: clca_civic_action_partnership_normalized
+    description: "Normalized data of the meeting records for partnership" 
+    +schema: intermediate
+    columns: 
+       - name: id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+       - name: partner_name
+         description: "Name of the partner organization"
+         tests:
+           - not_null
+       - name: monitoring_date
+         description: "Date when civic action was conducted"
+         tests:
+           - not_null
+
+  - name: hlca_civic_action_partnership_normalized
+    description: "Normalized data of the meeting records for partnership" 
+    +schema: intermediate
+    columns: 
+       - name: id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+       - name: partner_name
+         description: "Name of the partner organization"
+         tests:
+           - not_null
+       - name: monitoring_date
+         description: "Date when civic action was conducted"
+         tests:
+           - not_null
+
+
+  - name: stakeholder_visit_record_partnership_normalized
+    description: "Normalized data of the meeting records for partnership" 
+    +schema: intermediate
+    columns: 
+       - name: id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+       - name: partner_name
+         description: "Name of the partner organization"
+         tests:
+           - not_null
+       - name: monitoring_date
+         description: "Date when meeting was conducted"
+         tests:
+           - not_null
+
+  

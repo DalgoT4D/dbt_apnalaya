@@ -1,0 +1,38 @@
+{{ config(
+    tags=['partnerships'],
+    schema='intermediate'
+) }}
+
+with 
+    deduped_cte as (
+    {{ dbt_utils.deduplicate(
+        relation=source('kobo_partnerships','interaction_record_partnership'),
+        partition_by='_id',
+        order_by='_submission_time desc',
+    )}}
+    ),
+
+interaction_data as (
+SELECT 
+    -- Interaction Data
+    (md.data ->> '_id')::bigint as id,
+    md.data ->> '_status' as status,
+    (md.data ->> '_submission_time')::timestamp as submission_time,
+    (md.data ->> 'Date_Visit')::date as monitoring_date,
+    md.data ->> 'highlights' as highlights,
+    md.data ->> 'action_taken' as action_taken,
+    md.data ->> '_submitted_by' as submitted_by,
+    COALESCE(md.data->>'Cluster_Name',md.data->>'Cluster_Name_001', md.data->>'Cluster_Name_002') AS cluster_name, 
+    md.data ->> 'Interaction_Type_' as interaction_type,
+    md.data ->> 'Interaction_Purpose_' as interaction_purpose,
+    md.data ->> 'monitoring_purpose' as monitoring_purpose,
+    (md.data ->> 'monitoring_staff_count')::int as monitoring_staff_count,
+    (md.data ->> 'Number_of_Staff_Visit_for_monitoring')::int as number_of_staff_visits,
+    md.data ->> 'Name_Data_Collector' as data_collector,
+    md.data ->> 'Name_of_the_partner' as partner_name
+FROM deduped_cte as md
+)
+
+SELECT * from interaction_data 
+   
+

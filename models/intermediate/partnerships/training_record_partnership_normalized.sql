@@ -15,11 +15,11 @@ with
 training_data as (
 SELECT 
     -- Training Data
-    (td.data->>'_id')::int AS training_id,
+    (td.data->>'_id')::int AS id,
      td.data->>'Name_of_the_partner' AS partner_name,
     COALESCE(td.data->>'Cluster_Name',td.data->>'Cluster_Name_001', td.data->>'Cluster_Name_002') AS cluster_name, 
     COALESCE(td.data->>'Group_Name_HALWA',td.data->>'Group_Name_Vipla') AS group_name, 
-    (td.data->>'Date')::date AS submission_date,
+    (td.data->>'Date')::date AS monitoring_date,
     (td.data->>'_submission_time')::timestamp AS submission_time,
     td.data->>'_submitted_by' AS submitted_by,
     td.data->>'Training_Nature' AS training_nature,
@@ -34,7 +34,8 @@ FROM deduped_cte as td
 )
 
 -- Normalize partner name when blank separated strings are equivalent
-SELECT t.*,DATE_TRUNC('month', t.submission_date)::date AS submission_month,
+SELECT t.*,DATE_TRUNC('month', t.monitoring_date)::date AS monitoring_month,
    {{ normalize_string('t.partner_name') }} AS normalized_partner_name
    from training_data as t
+   
 

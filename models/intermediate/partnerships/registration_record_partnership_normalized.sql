@@ -16,7 +16,7 @@ family_data as (
 SELECT 
     -- Household-Level Data
     (fd.data->>'_id')::int AS household_id,
-    (fd.data->>'Date')::date AS submission_date,
+    (fd.data->>'Date')::date AS monitoring_date,
     fd.data->>'Name_FA_FO_002' AS primary_contact_name,
     COALESCE(fd.data->>'Cluster_Name',fd.data->>'Cluster_Name_001', fd.data->>'Cluster_Name_002') AS cluster_name, 
     (fd.data->>'Contact_Number_Y')::bigint AS contact_number,

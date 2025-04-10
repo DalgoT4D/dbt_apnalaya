@@ -10,8 +10,8 @@ WITH
 event_data AS (
 SELECT 
     -- Event Data
-    (ed.data->>'_id')::int AS event_id,
-    (ed.data->>'Date')::date AS submitted_date,
+    (ed.data->>'_id')::int AS id,
+    (ed.data->>'Date')::date AS monitoring_date,
     ed.data->>'Event_Name' AS event_name,
     ed.data->>'Event_Purpose' AS event_purpose,
     ed.data->>'Outcomes_of_Event' AS outcomes_of_event,
@@ -34,5 +34,5 @@ FROM deduped_cte AS ed,
 )
 
 -- Normalize partner name when blank separated strings are equivalent
-SELECT e.*, DATE_TRUNC('month', e.submitted_date)::date AS submitted_month
+SELECT e.*, DATE_TRUNC('month', e.monitoring_date)::date AS monitoring__month
 FROM event_data AS e

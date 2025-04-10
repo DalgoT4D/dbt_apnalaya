@@ -44,3 +44,78 @@ sources:
           - elementary.freshness_anomalies:
               timestamp_column: _airbyte_extracted_at
               anomaly_sensitivity: 3
+
+      - name: meeting_record_partnership
+        identifier: 'Meeting_Record_Partnership'
+        description: "Meeting Registration record"
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+     
+      - name: interaction_record_partnership
+        identifier: 'Interaction_Record_Partnership'
+        description: "Meeting Registration record"
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+
+              
+      - name: cl_civic_action_record_partnership
+        identifier: 'Community_Level_Civic_Action_Record_Partnership'
+        description: "Community Level Civic Action record"
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+
+      - name: hl_civic_action_record_partnership
+        identifier: 'HouseholdIndividual_Level_Civic_Action_Record_Partnership'
+        description: "Household Level Civic Action record"
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+
+      - name: stakeholder_visit_record_partnership
+        identifier: 'Stakeholders_Visit_Record_Partnership'
+        description: "Stakeholders Visit record"
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+
+
+
+
