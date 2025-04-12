@@ -9,4 +9,3 @@ packages:
     version: 0.16.4
   - package: dbt-labs/audit_helper
     version: 0.12.1
-  - git: https://github.com/kgmcquate/dbt-testgen

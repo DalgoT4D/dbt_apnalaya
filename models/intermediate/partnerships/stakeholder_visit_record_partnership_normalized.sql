@@ -22,7 +22,7 @@ SELECT
 
     vd.data ->> 'Name_FA_FO' as fa_fo_name,
     vd.data ->> '_submitted_by' as submitted_by,
-    vd.data ->> 'Name_of_the_partner' as partner_name,
+    TRIM(REPLACE(REPLACE(vd.data->>'Name_of_the_partner', 'Apnalaya_NGO', ''), '  ', ' ')) AS partner_name,
     COALESCE(vd.data->>'Cluster_Name_Sparsha',vd.data->>'Cluster_Name_HALWA', vd.data->>'Cluster_Name_Vipla') AS cluster_name, 
     vd.data ->> 'Partcipant_type' as participant_type,
     (vd.data ->> 'Total_Staff_Present')::int as total_staff_present,

@@ -29,6 +29,7 @@ SELECT
     TRIM(BOTH ',' FROM REPLACE(REPLACE(activity->>'Event_Activity_Details/Name_of_the_partner', 'Apnalaya_NGO', ''), ' ', ',')) AS n_partner_name,
     TRIM(REPLACE(REPLACE(activity->>'Event_Activity_Details/Name_of_the_partner', 'Apnalaya_NGO', ''), '  ', ' ')) AS partner_name,
     (activity->>'Event_Activity_Details/Total_Community_Members_Present')::int AS total_community_members_present
+
 FROM deduped_cte AS ed, 
     LATERAL jsonb_array_elements(ed.data->'Event_Activity_Details') AS activity
 )

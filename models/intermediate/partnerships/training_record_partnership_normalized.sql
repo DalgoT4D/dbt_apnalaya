@@ -18,7 +18,7 @@ SELECT
     (td.data->>'_id')::int AS id,
      td.data->>'Name_of_the_partner' AS partner_name,
     COALESCE(td.data->>'Cluster_Name',td.data->>'Cluster_Name_001', td.data->>'Cluster_Name_002') AS cluster_name, 
-    COALESCE(td.data->>'Group_Name_HALWA',td.data->>'Group_Name_Vipla') AS group_name, 
+    COALESCE(td.data->>'Group_Name_HALWA',td.data->>'Group_Name_Vipla',td.data->>'Group_Name_Sparsha') AS group_name, 
     (td.data->>'Date')::date AS monitoring_date,
     (td.data->>'_submission_time')::timestamp AS submission_time,
     td.data->>'_submitted_by' AS submitted_by,
