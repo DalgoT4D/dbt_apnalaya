@@ -25,14 +25,20 @@ SELECT
     COALESCE(md.data->>'Cluster_Name',md.data->>'Cluster_Name_001', md.data->>'Cluster_Name_002') AS cluster_name, 
     md.data ->> 'Interaction_Type_' as interaction_type,
     md.data ->> 'Interaction_Purpose_' as interaction_purpose,
+    case 
+    when (md.data ->> 'Interaction_Purpose_') LIKE '%Monitoring%' then 'Monitoring Visit'
+    when (md.data ->> 'Interaction_Purpose_') NOT LIKE '%Absent%' then 'Program Visit'
+    else 'Other'
+    end as visit_type,
     md.data ->> 'monitoring_purpose' as monitoring_purpose,
     (md.data ->> 'monitoring_staff_count')::int as monitoring_staff_count,
     (md.data ->> 'Number_of_Staff_Visit_for_monitoring')::int as number_of_staff_visits,
     md.data ->> 'Name_Data_Collector' as data_collector,
-    md.data ->> 'Name_of_the_partner' as partner_name
+    TRIM(BOTH ',' FROM REPLACE(REPLACE(md.data->>'Name_of_the_partner', 'Apnalaya_NGO', ''), ' ', ',')) AS partner_name
+
 FROM deduped_cte as md
 )
 
-SELECT * from interaction_data 
+SELECT *,DATE_TRUNC('month', monitoring_date)::date AS monitoring__month from interaction_data 
    
 

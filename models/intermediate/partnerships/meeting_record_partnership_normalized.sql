@@ -26,11 +26,11 @@ SELECT
     (md.data ->> '_submission_time')::timestamp as submission_time,
     md.data ->> 'Name_Data_Collector' as data_collector,
     md.data ->> 'Name_of_the_partner' as partner_name,
-    (md.data ->> 'Staff_Details_count')::int as staff_details_count,
+    TRIM(BOTH ',' FROM REPLACE(REPLACE(md.data->>'Name_of_the_partner', 'Apnalaya_NGO', ''), ' ', ',')) AS n_partner_name,
     (md.data ->> 'Total_Staff_Present')::int as total_staff_present,
     (md.data ->> 'Total_Staff_Present_Other')::int as total_staff_present_other,
     (md.data ->> 'Number_of_Facilitators')::int as number_of_facilitators,
-    (md.data ->> 'Facilitators_details_count')::int as facilitators_count,
+    (md.data ->> 'Total_Community_Members_Present')::int as total_community_members_present,
     md.data ->> 'Meeting_Details/Meeting_Type' as meeting_type,
     md.data ->> 'Meeting_Details/Action_Points' as action_points,
     md.data ->> 'Meeting_Details/Meeting_Purpose' as meeting_purpose,
@@ -38,6 +38,6 @@ SELECT
 FROM deduped_cte as md
 )
 
-SELECT * from meeting_data 
+SELECT *, DATE_TRUNC('month', monitoring_date)::date AS monitoring__month from meeting_data 
    
 
