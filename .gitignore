@@ -4,6 +4,7 @@ dbt_packages/
 logs/
 tmp/
 .dbtenv/
+.env
 .vscode
 .DS_Store
 profiles.yml
