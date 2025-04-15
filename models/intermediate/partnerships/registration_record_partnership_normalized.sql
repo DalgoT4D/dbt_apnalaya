@@ -60,4 +60,4 @@ FROM deduped_cte as fd,
     LATERAL jsonb_array_elements(fd.data->'Family_Members_Details') AS fm
 )
 
-SELECT *, CONCAT(household_id,CONCAT('_',first_name)) as unique_id from family_data
+SELECT *, CONCAT(household_id,'_',first_name,'_',age,'_',sex)) as unique_id from family_data
