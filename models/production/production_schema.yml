@@ -73,3 +73,11 @@ models:
          description: "The primary key for this table"
          tests:
            - not_null
+  - name: nutrition_data
+    description: "Production data of the growth monitoring nutrition " 
+    +schema: production
+    columns: 
+       - name: id
+         description: "The primary key for this table"
+         tests:
+           - not_null

@@ -128,4 +128,12 @@ models:
          tests:
            - not_null
 
-  
+  - name: nutrition_data_normalized
+    description: "Normalized data of the nutrition records" 
+    +schema: intermediate
+    columns: 
+       - name: id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
