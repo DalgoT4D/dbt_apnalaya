@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: growth_monitoring
+    schema: historical
+    tables:
+      - name: nutrition_data
+        identifier: 'nutrition_data'
+        description: "Nutrition Data form growth machines"
+
+  - name: anc
+    schema: historical
+    tables:
+      - name: aims_anc
+        identifier: 'aims_anc'
+        description: "AIMS anc data"
+      - name: aanandimaa_anc
+        identifier: 'aanandimaa_anc'
+        description: "AIMS anc data"
+      - name: aims_birth_outcomes
+        identifier: 'aims_birth_outcomes'
+        description: "AIMS birth_outcomes data"

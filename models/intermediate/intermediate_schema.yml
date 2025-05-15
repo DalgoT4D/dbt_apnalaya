@@ -137,3 +137,10 @@ models:
          tests:
            - unique
            - not_null
+
+  - name: int_birth_outcomes
+    description: "Borth outcomes intermediate data" 
+    +schema: intermediate
+    columns: 
+       - name: id
+         description: "The primary key for this table"

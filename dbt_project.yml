@@ -43,8 +43,10 @@ models:
     intermediate:
       schema: intermediate
       materialized: table
+      +dbt-osmosis: "intermediate_schema.yml"
     production:
       schema: production
       materialized: table
+      +dbt-osmosis: "production_schema.yml"
   elementary:
     +schema: "elementary"

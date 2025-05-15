@@ -81,3 +81,10 @@ models:
          description: "The primary key for this table"
          tests:
            - not_null
+
+  - name: birth_outcomes
+    description: "Birth outcomes intermediate data" 
+    +schema: production
+    columns: 
+       - name: mother_id
+         description: "primary key for mother"

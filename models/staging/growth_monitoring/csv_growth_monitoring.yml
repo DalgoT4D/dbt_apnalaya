@@ -1,9 +1,0 @@
-version: 2
-
-sources:
-  - name: growth_monitoring
-    schema: historical
-    tables:
-      - name: nutrition_data
-        identifier: 'nutrition_data'
-        description: "Nutrition Data form growth machines"
