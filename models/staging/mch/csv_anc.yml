@@ -14,9 +14,12 @@ sources:
       - name: aims_anc
         identifier: 'aims_anc'
         description: "AIMS anc data"
+      - name: aims_pnc
+        identifier: 'aims_pnc'
+        description: "AIMS pnc data"
       - name: aanandimaa_anc
         identifier: 'aanandimaa_anc'
-        description: "AIMS anc data"
+        description: "Aanandimaa anc data"
       - name: aims_birth_outcomes
         identifier: 'aims_birth_outcomes'
         description: "AIMS birth_outcomes data"
