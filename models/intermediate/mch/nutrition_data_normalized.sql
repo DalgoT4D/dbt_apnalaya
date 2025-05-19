@@ -13,6 +13,7 @@ typed as (
 
     select
         CAST(REGEXP_REPLACE(machine_code, '\.0$', '') AS INT) AS machine_code,
+        'M East' as ward,
         old_new,
         cast(NULLIF(age_in_months,'') as decimal) as age_in_months,
         gender,
