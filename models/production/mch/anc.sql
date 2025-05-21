@@ -1,5 +1,5 @@
 {{ config(
-  tags=['anc'],
+  tags=['mch'],
   schema='production'
 ) }}
 

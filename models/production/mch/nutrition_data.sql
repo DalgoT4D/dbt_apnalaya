@@ -1,5 +1,5 @@
 {{ config(
-  tags=['growth_monitoring'],
+  tags=['mch'],
   schema='production'
 ) }}
 
