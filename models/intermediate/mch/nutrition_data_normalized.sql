@@ -4,21 +4,20 @@
 ) }}
 
 with source as (
-    select *, LEFT(date_of_weighing, 10) AS date_of_weighing_corrected
+    select *
     from {{ source('growth_monitoring', 'nutrition_data') }}
-    where machine_code <> ''
+    where date_of_weighing NOT LIKE '%?%'
 ),
 
 typed as (
 
     select
-        CAST(REGEXP_REPLACE(machine_code, '\.0$', '') AS INT) AS machine_code,
+        machine_code,
         'M East' as ward,
-        old_new,
-        cast(NULLIF(age_in_months,'') as decimal) as age_in_months,
+        age,
         gender,
-        height_in_cm,
-        weight_in_kg,
+        height,
+        weight,
         under_wt_category,
         case 
             when under_wt_category IN ('n','A') then 'No'
@@ -37,13 +36,10 @@ typed as (
             else 'Yes'
         end as wasting_status,
         date_of_weighing as date_of_weighing_raw,
-        {{ validate_date("date_of_weighing_corrected") }} as date_of_weighing,
-        date_of_weighing_corrected,
-        date_of_birth,
-        awc_no,
-        aww_name,
-        age_group
+        to_date(date_of_weighing,'DD-MM-YY') as date_of_weighing,
+        date_of_birth
     from source
+    where date_of_weighing <> '04-13-21'
 )
 
-select * from typed
+select * from typed 
