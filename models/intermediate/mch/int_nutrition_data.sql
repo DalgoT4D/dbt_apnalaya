@@ -13,6 +13,7 @@ typed as (
 
     select
         machine_code,
+        child_code,
         'M East' as ward,
         age,
         gender,
@@ -37,9 +38,14 @@ typed as (
         end as wasting_status,
         date_of_weighing as date_of_weighing_raw,
         to_date(date_of_weighing,'DD-MM-YY') as date_of_weighing,
+        date_trunc('month',to_date(date_of_weighing,'DD-MM-YY')) as month_of_weighing,
         date_of_birth
     from source
     where date_of_weighing <> '04-13-21'
 )
 
-select * from typed 
+{{ dbt_utils.deduplicate(
+    relation='typed',
+    partition_by='machine_code,child_code,month_of_weighing',
+    order_by='date_of_weighing asc',
+)}}

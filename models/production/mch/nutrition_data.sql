@@ -3,4 +3,4 @@
   schema='production'
 ) }}
 
-select * from {{ ref('nutrition_data_normalized') }} 
+select * from {{ ref('int_nutrition_data') }} 

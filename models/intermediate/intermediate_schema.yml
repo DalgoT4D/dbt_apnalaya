@@ -128,7 +128,7 @@ models:
          tests:
            - not_null
 
-  - name: nutrition_data_normalized
+  - name: int_nutrition_data
     description: "Normalized data of the nutrition records" 
     +schema: intermediate
     columns: 
