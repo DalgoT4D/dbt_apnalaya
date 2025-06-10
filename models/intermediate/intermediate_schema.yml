@@ -144,3 +144,13 @@ models:
     columns: 
        - name: id
          description: "The primary key for this table"
+
+  - name: int_anc
+    description: "Normalized data of the anc records" 
+    +schema: intermediate
+    columns: 
+       - name: id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null

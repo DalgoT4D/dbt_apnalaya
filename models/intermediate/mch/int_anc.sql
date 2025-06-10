@@ -21,7 +21,7 @@ with
         'AIMS' as source,
         a.unique_id,
         a.ward,
-        CASE WHEN a.check_up IS NOT NULL THEN 'Yes' ELSE 'No' END as check_up,
+        CASE WHEN a.check_up IN ('1','2','3') THEN 'No' WHEN a.check_up IN ('4') THEN 'Yes' ELSE NULL END as check_up,
         CASE WHEN a.recevied_tt_booster ='NA' THEN NULL ELSE a.recevied_tt_booster END as recevied_tt_booster,
         CASE WHEN a.no_of_ifa_tablets_consumed IN ('1','2') THEN 'Yes' ELSE 'No' END as no_of_ifa_tablets_consumed, 
         CASE WHEN b.place_of_delivery = '#NA' THEN NULL
@@ -34,15 +34,17 @@ with
 
     cte_aanandimaa_anc as (select
             'Aanandimaa' as source,
-            concat(mother_id,edd_date) as child_id,
+            concat(mother_id,edd_date) as unique_id,
             ward,
             CASE 
-                WHEN COALESCE("ANC1_TestDate","ANC2_TestDate","ANC3_TestDate","ANC4_TestDate") ='NA' 
-                    THEN NULL
-                WHEN (COALESCE("ANC1_TestDate","ANC2_TestDate","ANC3_TestDate","ANC4_TestDate") IS NOT NULL) 
+                WHEN 
+                    "ANC1_TestDate" = 'NA' OR "ANC2_TestDate" = 'NA' OR "ANC3_TestDate" = 'NA' OR "ANC4_TestDate" ='NA'
+                    THEN 'No'
+                WHEN 
+                    "ANC1_TestDate" IS NOT NULL AND date1 <> '' AND "ANC2_TestDate" IS NOT NULL AND date2 <> '' AND "ANC3_TestDate" IS NOT NULL AND date3 <> '' AND "ANC4_TestDate" IS NOT NULL AND date4 <> ''
                 THEN 'Yes' 
-            ELSE 'No' 
-            END as checkup,
+            ELSE NULL
+            END as check_up,
             CASE WHEN "TT Booster" ='NA' THEN NULL ELSE "TT Booster" END as recevied_tt_booster,
             NULL as no_of_ifa_tablets_consumed,
             CASE WHEN "outcomePlaceOfDelivery" = '#NA' THEN NULL
