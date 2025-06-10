@@ -41,7 +41,7 @@ with
                     "ANC1_TestDate" = 'NA' OR "ANC2_TestDate" = 'NA' OR "ANC3_TestDate" = 'NA' OR "ANC4_TestDate" ='NA'
                     THEN 'No'
                 WHEN 
-                    "ANC1_TestDate" IS NOT NULL AND date1 <> '' AND "ANC2_TestDate" IS NOT NULL AND date2 <> '' AND "ANC3_TestDate" IS NOT NULL AND date3 <> '' AND "ANC4_TestDate" IS NOT NULL AND date4 <> ''
+                    "ANC1_TestDate" IS NOT NULL AND "ANC1_TestDate" <> '' AND "ANC2_TestDate" IS NOT NULL AND "ANC2_TestDate" <> '' AND "ANC3_TestDate" IS NOT NULL AND "ANC3_TestDate" <> '' AND "ANC4_TestDate" IS NOT NULL AND "ANC4_TestDate" <> ''
                 THEN 'Yes' 
             ELSE NULL
             END as check_up,
