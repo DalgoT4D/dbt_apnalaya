@@ -73,7 +73,7 @@ models:
          tests:
            - not_null
 
-  - name: clca_civic_action_partnership_normalized
+  - name: cl_civic_action_record_partnership_normalized
     description: "Normalized data of the meeting records for partnership" 
     +schema: intermediate
     columns: 
@@ -91,7 +91,7 @@ models:
          tests:
            - not_null
 
-  - name: hlca_civic_action_partnership_normalized
+  - name: hl_civic_action_record_partnership_normalized
     description: "Normalized data of the meeting records for partnership" 
     +schema: intermediate
     columns: 
@@ -149,7 +149,7 @@ models:
     description: "Normalized data of the anc records" 
     +schema: intermediate
     columns: 
-       - name: id
+       - name: unique_id
          description: "The primary key for this table"
          tests:
            - unique
