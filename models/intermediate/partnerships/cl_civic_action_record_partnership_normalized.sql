@@ -31,7 +31,7 @@ SELECT
     clca.data ->> 'group_zu7uw03/Action' as action_taken,
     clca.data ->> 'group_zu7uw03/gr_name_' as group_name_internal,
     clca.data ->> 'group_zu7uw03/Action' as civic_action,
-    clca.data ->> 'group_zu7uw03/civic_action_code' as civic_action_code,
+    COALESCE(clca.data ->> 'group_zu7uw03/civic_action_code',clca.data ->> 'old_civic_action_code') as civic_action_code,
     clca.data ->> 'Details_Civic_Action/Activity' as civic_activity,
     clca.data ->> 'Details_Civic_Action/Place_of_submission' as submission_place,
     clca.data ->> 'Details_Civic_Action/Method_of_submission' as submission_method,

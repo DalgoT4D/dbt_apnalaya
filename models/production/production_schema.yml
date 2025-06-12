@@ -88,3 +88,11 @@ models:
     columns: 
        - name: mother_id
          description: "primary key for mother"
+
+  - name: clca
+    description: "Data of the community level civic action records" 
+    +schema: intermediate
+
+  - name: hhca
+    description: "Data of the household level civic action records" 
+    +schema: intermediate

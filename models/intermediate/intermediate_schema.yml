@@ -154,3 +154,10 @@ models:
          tests:
            - unique
            - not_null
+  - name: int_clca
+    description: "Normalized data of the community level civic action records" 
+    +schema: intermediate
+
+  - name: int_hhca
+    description: "Normalized data of the household level civic action records" 
+    +schema: intermediate

@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: civic_action
+    schema: historical
+    tables:
+      - name: clca_aims
+        identifier: 'clca_aims'
+        description: "CL Civic data export from AIMS"
+      - name: clca_kobo
+        identifier: 'clca_kobo'
+        description: "CL Civic Action data export from Kobo"
+      - name: hhca_aims
+        identifier: 'hhca_aims'
+        description: "HH Civic data export from AIMS"
+      - name: hhca_kobo
+        identifier: 'hhca_kobo'
+        description: "HH Civic Action data export from Kobo"

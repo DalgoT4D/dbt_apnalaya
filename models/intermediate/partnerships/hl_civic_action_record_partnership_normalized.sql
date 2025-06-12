@@ -44,7 +44,7 @@ SELECT
     hlca.data ->> 'group_zu7uw03/year_' as group_year,
     hlca.data ->> 'group_zu7uw03/Action' as civic_action,
     hlca.data ->> 'group_zu7uw03/gr_name_' as group_internal_name,
-    hlca.data ->> 'group_zu7uw03/civic_action_code' as civic_action_code,
+    COALESCE(hlca.data ->> 'group_zu7uw03/civic_action_code',hlca.data ->> 'old_civic_action_code') as civic_action_code,
     hlca.data ->> 'group_zu7uw03/Unique_ID' as unique_id,
     hlca.data ->> 'group_zu7uw03/Purpose_of_civic_action' as purpose_civic_action,
     hlca.data ->> 'group_zu7uw03/Register_or_not' as is_registered,
