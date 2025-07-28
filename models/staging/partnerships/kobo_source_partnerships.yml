@@ -17,6 +17,21 @@ sources:
           - elementary.freshness_anomalies:
               timestamp_column: _airbyte_extracted_at
               anomaly_sensitivity: 3
+
+      - name: registration_record_partnership_new
+        identifier: 'Registration_New_Form'
+        description: "Registration record for a partnership - new "
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+
       - name: training_record_partnership
         identifier: 'Training_Record_Partnership'
         description: "Training Registration record"
@@ -31,9 +46,9 @@ sources:
               timestamp_column: _airbyte_extracted_at
               anomaly_sensitivity: 3
 
-      - name: event_record_partnership
-        identifier: 'Event_Record_Partnership'
-        description: "Training Registration record"
+      - name: training_record_partnership_new
+        identifier: 'Training_Record_New'
+        description: "Training Registration record New "
         data_tests:
           - elementary.schema_changes: 
               config:
@@ -45,6 +60,34 @@ sources:
               timestamp_column: _airbyte_extracted_at
               anomaly_sensitivity: 3
 
+      - name: event_record_partnership
+        identifier: 'Event_Record_Partnership'
+        description: "Event Registration record"
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+
+      - name: event_record_partnership_new
+        identifier: 'Event_Record_New'
+        description: "Event Registration record"
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+              
       - name: meeting_record_partnership
         identifier: 'Meeting_Record_Partnership'
         description: "Meeting Registration record"
@@ -58,7 +101,20 @@ sources:
           - elementary.freshness_anomalies:
               timestamp_column: _airbyte_extracted_at
               anomaly_sensitivity: 3
-     
+
+      - name: meeting_record_partnership_new
+        identifier: 'Meeting_Record_New'
+        description: "Meeting Registration record New"
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3     
       - name: interaction_record_partnership
         identifier: 'Interaction_Record_Partnership'
         description: "Meeting Registration record"
@@ -73,6 +129,19 @@ sources:
               timestamp_column: _airbyte_extracted_at
               anomaly_sensitivity: 3
 
+      - name: interaction_record_partnership_new
+        identifier: 'InteractionMonitoring_Visit_Record_New'
+        description: "Meeting Registration record New"
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
 
 
       - name: cl_civic_action_record_partnership_new
