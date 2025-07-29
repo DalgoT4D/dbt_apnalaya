@@ -201,6 +201,16 @@ sources:
               timestamp_column: _airbyte_extracted_at
               anomaly_sensitivity: 3
 
-
-
-
+      - name: stakeholder_visit_record_partnership_new
+        identifier: 'Stakeholder_Visit_New_Record'
+        description: "Stakeholders Visit record New"
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
