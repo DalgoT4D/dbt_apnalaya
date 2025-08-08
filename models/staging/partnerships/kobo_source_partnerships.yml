@@ -131,6 +131,20 @@ sources:
           - elementary.freshness_anomalies:
               timestamp_column: _airbyte_extracted_at
               anomaly_sensitivity: 3
+        
+      - name: group_record_partnership
+        identifier: 'Group_Record_Partnership'
+        description: "A test demo"
+        data_tests:
+          - elementary.schema_changes: 
+              config:
+                severity: error
+          - elementary.volume_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
+          - elementary.freshness_anomalies:
+              timestamp_column: _airbyte_extracted_at
+              anomaly_sensitivity: 3
 
 
 

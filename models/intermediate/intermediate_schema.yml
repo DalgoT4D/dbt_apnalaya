@@ -161,3 +161,7 @@ models:
   - name: int_hhca
     description: "Normalized data of the household level civic action records" 
     +schema: intermediate
+  
+  - name: group_information_record_normalised
+    description: "A trial demo for practice" 
+    +schema: ausaaf_intermediate
