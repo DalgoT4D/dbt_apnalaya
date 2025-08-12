@@ -162,6 +162,6 @@ models:
     description: "Normalized data of the household level civic action records" 
     +schema: intermediate
   
-  - name: group_information_record_normalised
-    description: "A trial demo for practice" 
+  - name: group_information_record_normalized
+    description: "Normalized data of the group information records" 
     +schema: ausaaf_intermediate
