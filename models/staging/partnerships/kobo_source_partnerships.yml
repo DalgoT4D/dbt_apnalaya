@@ -134,7 +134,7 @@ sources:
         
       - name: group_record_partnership
         identifier: 'Group_Record_Partnership'
-        description: "A test demo"
+        description: "Group Records"
         data_tests:
           - elementary.schema_changes: 
               config:
