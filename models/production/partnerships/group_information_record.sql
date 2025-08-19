@@ -3,4 +3,4 @@
   schema='production'
 ) }}
 
-select * from {{ ref(' group_information_record_normalized') }} 
+select * from {{ ref('group_information_record_normalized') }} 
