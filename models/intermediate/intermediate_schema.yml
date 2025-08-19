@@ -161,3 +161,7 @@ models:
   - name: int_hhca
     description: "Normalized data of the household level civic action records" 
     +schema: intermediate
+  
+  - name: group_information_record_normalized
+    description: "Normalized data of the group information records" 
+    +schema: intermediate
