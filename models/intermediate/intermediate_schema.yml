@@ -164,4 +164,4 @@ models:
   
   - name: group_information_record_normalized
     description: "Normalized data of the group information records" 
-    +schema: ausaaf_intermediate
+    +schema: intermediate
